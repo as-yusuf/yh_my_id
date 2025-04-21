@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding of :::: Yusuf ~ Hesti ::::</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oregano">
+  <link rel="icon" href="assets/images/yh1.ico" type="image/x-icon">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: sans-serif;
+      overflow-x: hidden;
+      background-color: #f0f0f0;
+    }
+    .room-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+    .room {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/images/bg2.png') no-repeat center center;
+      background-size: contain;
+    }
+    .clickable {
+      position: absolute;
+      width: 8vw;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+      filter: drop-shadow(0 0 6px yellow);
+      animation: glowFilter 1.5s infinite alternate ease-in-out;
+      transition: filter 0.3s ease-in-out;
+    }
+    @keyframes glowFilter {
+      from { filter: drop-shadow(0 0 4px yellow); }
+      to { filter: drop-shadow(0 0 14px yellow); }
+    }
+    .clickable:hover {
+      filter: drop-shadow(0 0 16px yellow);
+    }
+
+    /* 🔥 Popup Styling Baru */
+    .popup {
+	  position: fixed;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background: white;
+	  padding: 20px;
+	  border-radius: 10px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	  display: none;
+	  z-index: 10;
+	  width: 90vw;
+	  height: auto;
+	  max-height: 95vh;
+	  overflow-y: auto;
+	}
+
+    .popup h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: #333;
+	  font-family: "Oregano", sans-serif;
+    }
+    .popup img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    #popup-subtext {
+      margin-top: 15px;
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.4;
+	  font-family: "Oregano", sans-serif;
+	  text-align: center;
+    }
+	#popup-subtext strong,
+	#popup-subtext b {
+	  font-weight: bold;
+	}
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #999;
+      transition: color 0.2s ease;
+    }
+    .popup-close:hover {
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -45%); }
+      to   { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    /* Posisi item */
+    .item1{ top: 15%; left: 39%; width: 50px; height: 70px; }
+    .item2{ top: 27%; left: 42%; width: 65px; height: 55px; }
+    .item3{ top: 37%; left: 39%; width: 65px; height: 55px; }
+    .item4{ top: 47.5%; left: 51.5%; width: 60px; height: 50px; }
+    .item5{ top: 49%; left: 59%; width: 50px; height: 57px; }
+    .item6{ top: 79%; left: 56%; width: 100px; height: 130px; }
+
+    @media (max-width: 768px) {
+      .clickable {
+        width: 12vw;
+      }
+      .item1{ top: 20%; left: 19%; width: 50px; height: 70px; }
+      .item2{ top: 30%; left: 30%; width: 65px; height: 55px; }
+      .item3{ top: 38%; left: 19%; width: 65px; height: 55px; }
+      .item4{ top: 48.5%; left: 54.5%; width: 60px; height: 50px; }
+      .item5{ top: 48.8%; left: 74%; width: 50px; height: 57px; }
+      .item6{ top: 74%; left: 68%; width: 100px; height: 130px; }
+    }
+	  .popup {
+		width: 95vw;
+		padding: 15px;
+	  }
+  </style>
+</head>
+<body>
+  <div class="room-wrapper">
+    <div class="room">
+      <audio id="myAudio">
+        <source src="https://cdn.jsdelivr.net/gh/as-yusuf/yhweb/moww.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+
+      <!-- ✅ Contoh popup dengan subtext HTML -->
+      <img src="assets/images/fr.png?text=A" class="clickable item1"
+           onclick="openPopup('Profil Pengantin', 'assets/images/fr.jpg?text=Item+A', ':::: <b>AKHMAD SYAIFUDDIN YUSUF RAHADI, S.Kom</b><br>bin BIMA SOEHARNO::::<br>Kenteng, RT 06 RW 03, Kejiwan, Wonosobo<br><br>:::: <b>NOVIANA HESTI WIDIATI, S.Sos</b><br>binti UNTUNG PURWANTO::::<br>Ngadireso, RT 06 RW 03, Ngadikusuman, Kertek, Wonosobo')">
+
+      <img src="assets/images/home.png?text=B" class="clickable item2"
+           onclick="openPopup('Lokasi Akad & Tasyakuran', 'assets/images/map2.png?text=Item+B', 'Ngadireso RT 06 RW 03, <br>Ngadikusuman, Kertek, <br>Wonosobo')">
+
+      <img src="assets/images/map.png?text=F" class="clickable item3" onclick="window.open('https://goo.gl/maps/6BXf1oJ37CXczKip6?g_st=ac', '_blank')">
+	  
+      <img src="assets/images/cal.png?text=C" class="clickable item4" onclick="openPopup('Tasyakuran Pernikahan', 'assets/images/box2.png?text=Item+C', 'Assalamu\'alaikum w. w.<br><br>Tanpa mengurangi rasa hormat kami bermaksud mengundang Bapak\/ Ibu\/ Sdr.\/i dalam acara tasyakuran pernikahan kami pada:<br><br>Sabtu, 3 Mei, 2025<br>Pukul 10.00 s.d. selesai<br>di Ngadikusuman, Kertek (klik gambar map)<br><br>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak\/ Ibu\/ Sdr.\/i berkenan hadir untuk memberikan doa restu kepada kami.<br><br>Wassalamu\'alaikum w. w. ')">
+
+      <img src="assets/images/box.png?text=D" class="clickable item5"
+           onclick="openPopup('Akad Nikah', 'assets/images/cal2.jpeg?text=Item+D', 'Jumat, 2 Mei 2025<br>Pukul 08.00 WIB<br>Bertempat di Ngadireso, Ngadikusuman, Kertek')">
+
+      <img src="assets/images/cats.png?text=E" class="clickable item6" onclick="playAudio()">
+    </div>
+
+    <script>
+      var x = document.getElementById("myAudio"); 
+      function playAudio() { 
+        x.play(); 
+      }
+    </script>
+  </div>
+
+  <!-- ✅ Popup lengkap dengan subtext -->
+  <div class="popup" id="popup">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2 id="popup-title"></h2>
+    <img id="popup-img" src="" alt="Popup Image" />
+    <p id="popup-subtext"></p>
+  </div>
+
+  <!-- ✅ Musik latar -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://cdn.jsdelivr.net/gh/as-yusuf/yhweb/bgmusic.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ✅ Script openPopup -->
+  <audio id="typing-sound">
+    <source src="https://cdn.jsdelivr.net/gh/as-yusuf/yhweb/clik.mp3" type="audio/mpeg" />
+  </audio>
+  <script>
+  function openPopup(title, imgSrc, subtext = '') {
+    const popup = document.getElementById('popup');
+    const titleEl = document.getElementById('popup-title');
+    const imgEl = document.getElementById('popup-img');
+    const subtextEl = document.getElementById('popup-subtext');
+    const typingSound = document.getElementById('typing-sound');
+
+    titleEl.innerText = title;
+    imgEl.src = imgSrc;
+    subtextEl.innerHTML = ''; // clear previous
+
+    popup.style.display = 'block';
+
+    // ✅ Pisahkan tag HTML dan teks biasa
+    const parts = subtext.match(/(<[^>]+>|[^<]+)/g); // tag HTML ATAU teks biasa
+    let currentPart = 0;
+    let currentChar = 0;
+
+    function typeNext() {
+      if (currentPart >= parts.length) return;
+
+      const part = parts[currentPart];
+
+      // Jika tag HTML, langsung append
+      if (part.startsWith('<')) {
+        subtextEl.innerHTML += part;
+        currentPart++;
+        setTimeout(typeNext, 0);
+      } else {
+        // Ketik teks biasa satu per satu
+        if (currentChar < part.length) {
+          subtextEl.innerHTML += part[currentChar];
+          if (part[currentChar] !== ' ' && currentChar % 6 === 0) {
+            typingSound.currentTime = 0;
+            typingSound.play();
+          }
+          currentChar++;
+          setTimeout(typeNext, 30); // kecepatan huruf
+        } else {
+          currentPart++;
+          currentChar = 0;
+          setTimeout(typeNext, 0);
+        }
+      }
+    }
+
+    typeNext();
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+  
+  window.addEventListener('click', () => {
+	  document.getElementById('bg-music').play();
+	}, { once: true });
+
+</script>
+
+
+</body>
+</html>
